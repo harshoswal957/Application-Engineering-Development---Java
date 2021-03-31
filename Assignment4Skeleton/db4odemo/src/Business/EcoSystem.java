@@ -38,6 +38,8 @@ public class EcoSystem extends Organization{
         return business;
     }
     
+    
+    //Customer
     public CustomerDirectory getCustomerDirectory() {
         if(customerDirectory == null)
         {
@@ -48,6 +50,35 @@ public class EcoSystem extends Organization{
 
     public void setCustomerDirectory(CustomerDirectory customerDirectory) {
         this.customerDirectory = customerDirectory;
+    }
+    
+    
+    //Restaurant
+    public RestaurantDirectory getRestaurantDirectory() {
+        if(restaurantDirectory == null)
+        {
+            restaurantDirectory = new RestaurantDirectory();
+        }
+        return restaurantDirectory;
+    }
+
+    public void setRestaurantDirectory(RestaurantDirectory restaurantDirectory) {
+        this.restaurantDirectory = restaurantDirectory;
+    }
+    
+    
+     //Delivery Man
+    public DeliveryManDirectory getDeliveryManDirectory() {
+        if(deliveryManDirectory == null)
+        {
+            deliveryManDirectory = new DeliveryManDirectory();
+        }
+        return deliveryManDirectory;
+    }
+
+    
+    public void setDeliveryManDirectory(DeliveryManDirectory deliveryManDirectory) {
+        this.deliveryManDirectory = deliveryManDirectory;
     }
     
     @Override
@@ -66,4 +97,6 @@ public class EcoSystem extends Organization{
        //
        return false;
     }
+    
+    
 }
