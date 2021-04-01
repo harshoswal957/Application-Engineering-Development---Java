@@ -373,7 +373,7 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
          try {
              
             if(password==null || password.isEmpty()){
-                throw new NullPointerException("Pwd field is Empty");
+                throw new NullPointerException("Password field is Empty");
             }else if(Pattern.matches("^(?=(.*[a-z]){1,})(?=(.*[\\d]){1,})(?=(.*[\\W]){1,})(?!.*\\s).{5,30}$", password)==false){
                 throw new Exception("Invalid Password, Password must contain 5 characters and include 1 number and one special character");
             }

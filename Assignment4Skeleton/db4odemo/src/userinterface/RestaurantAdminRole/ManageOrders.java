@@ -156,8 +156,8 @@ public class ManageOrders extends javax.swing.JPanel {
         }
         else{
             Order order  = (Order)orderTable.getValueAt(selectedRow, 0);  
-            if(order.getStatus().equals("Ready to Deliver")){
-                JOptionPane.showMessageDialog(null,"Already Ready ","Warning",JOptionPane.WARNING_MESSAGE);
+            if(order.getStatus().equals("Ready to be delivered")){
+                JOptionPane.showMessageDialog(null,"Already Ready","Warning",JOptionPane.WARNING_MESSAGE);
             }else{
                 OrderDetails viewOrder=new OrderDetails(userProcessContainer,account,order,system);
                 userProcessContainer.add("View Order",viewOrder);
@@ -175,7 +175,7 @@ public class ManageOrders extends javax.swing.JPanel {
     private void AssignBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AssignBtn1ActionPerformed
         int selectedRow = orderTable.getSelectedRow();
         if(selectedRow<0){
-            JOptionPane.showMessageDialog(null,"Please select a row to view details","Warning",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Select a row to view","Warning",JOptionPane.WARNING_MESSAGE);
         }
         else{
             Order order  = (Order)orderTable.getValueAt(selectedRow, 0);
