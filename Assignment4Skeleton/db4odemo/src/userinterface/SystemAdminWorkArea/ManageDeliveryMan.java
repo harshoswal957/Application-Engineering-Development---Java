@@ -177,7 +177,7 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
 
         }
         else {
-            JOptionPane.showMessageDialog(null,"Please select a row");
+            JOptionPane.showMessageDialog(null,"Select a row");
         }
         submitJButton.setEnabled(false);
         deleteBtn.setEnabled(false);
@@ -211,7 +211,7 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
         int selectedRow = networkJTable.getSelectedRow();
         if(selectedRow>=0){
             int selectionButton = JOptionPane.YES_NO_OPTION;
-            int selectionResult = JOptionPane.showConfirmDialog(null, "Are you sure to delete??","Warning",selectionButton);
+            int selectionResult = JOptionPane.showConfirmDialog(null, "Confirm deletion","Warning",selectionButton);
             if(selectionResult == JOptionPane.YES_OPTION){
                 String username= (String) networkJTable.getValueAt(selectedRow, 1);
                 String pwd= (String) networkJTable.getValueAt(selectedRow, 2);
@@ -224,7 +224,7 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
                 populateNetworkTable();
             }
         }else{
-            JOptionPane.showMessageDialog(null, "Please select a Row!!");
+            JOptionPane.showMessageDialog(null, "Select a row");
         }
     }//GEN-LAST:event_deleteBtnActionPerformed
 
@@ -237,15 +237,15 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
         
         try {
              if(name==null || name.isEmpty()){
-                throw new NullPointerException(" Name field is Empty");
+                throw new NullPointerException("Name not entered");
                 
                 
             }else if(name.length()<5 || Pattern.matches("^[A-Za-z]+$", name)==false){
-                throw new Exception("Please enter valid  Name");
+                throw new Exception("Name entered is less than 5 characters length, Please re-enter name");
                 
             }
         } catch(NullPointerException e){
-            JOptionPane.showMessageDialog(null, " Name is Empty");
+            JOptionPane.showMessageDialog(null, "Name field is empty");
            
             return;
             
