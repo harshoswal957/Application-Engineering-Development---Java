@@ -167,27 +167,27 @@ public class ManageMenu extends javax.swing.JPanel {
         
          try {
              if(name==null || name.isEmpty()){
-                throw new NullPointerException(" Name field is Empty");
+                throw new NullPointerException("Name field is Empty");
                 
                 
             }else if(name.length()<5 ){
-                throw new Exception("Please enter valid  Name");
+                throw new Exception("Please enter valid Name");
                 
             }
         } catch(NullPointerException e){
-            JOptionPane.showMessageDialog(null, " Name is Empty");
+            JOptionPane.showMessageDialog(null, "Name field is Empty");
            
             return;
             
         }catch (Exception e){
-            JOptionPane.showMessageDialog(null, "  Name is invalid");
+            JOptionPane.showMessageDialog(null, "Name is invalid");
        
             return;
         }
         
         try {
              if(desc==null || desc.isEmpty()){
-                throw new NullPointerException("Description  field is Empty");
+                throw new NullPointerException("Description field is Empty");
                 
                 
             }else if(desc.length()<5){
@@ -215,12 +215,12 @@ public class ManageMenu extends javax.swing.JPanel {
             
             
         }  catch(NullPointerException e){
-             JOptionPane.showMessageDialog(null, "amount is Empty");
+             JOptionPane.showMessageDialog(null, "Amount is Empty");
             
              
              return;
         }catch (Exception e) {
-             JOptionPane.showMessageDialog(null, "amount is of invalid pattern");
+             JOptionPane.showMessageDialog(null, "Amount is of invalid pattern");
              
              
              return;
@@ -246,7 +246,7 @@ public class ManageMenu extends javax.swing.JPanel {
         int selectedRow = MenuTable.getSelectedRow();
         if(selectedRow>=0){
             int selectionButton = JOptionPane.YES_NO_OPTION;
-            int selectionResult = JOptionPane.showConfirmDialog(null, "Are you sure to delete??","Warning",selectionButton);
+            int selectionResult = JOptionPane.showConfirmDialog(null, "Confirm delete","Warning",selectionButton);
             if(selectionResult == JOptionPane.YES_OPTION){
                 
                 for(Restaurant restro:system.getRestaurantDirectory().getRestaurantList()){
@@ -257,7 +257,7 @@ public class ManageMenu extends javax.swing.JPanel {
                 populateTable();
             }
         }else{
-            JOptionPane.showMessageDialog(null, "Please select a Row!!");
+            JOptionPane.showMessageDialog(null, "Select a row");
         }
     }//GEN-LAST:event_deleteBtnActionPerformed
 

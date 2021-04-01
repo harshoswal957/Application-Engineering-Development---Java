@@ -175,7 +175,7 @@ public class ManageOrders extends javax.swing.JPanel {
     private void AssignBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AssignBtn1ActionPerformed
         int selectedRow = orderTable.getSelectedRow();
         if(selectedRow<0){
-            JOptionPane.showMessageDialog(null,"Please select a row from the table to view details","Warning",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Please select a row to view details","Warning",JOptionPane.WARNING_MESSAGE);
         }
         else{
             Order order  = (Order)orderTable.getValueAt(selectedRow, 0);
