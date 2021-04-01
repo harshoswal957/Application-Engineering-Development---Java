@@ -8,7 +8,6 @@ import Business.Customer.Customer;
 import Business.EcoSystem;
 import Business.Order.Order;
 import Business.Restaurant.Restaurant;
-
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.LabTestWorkRequest;
 import Business.WorkQueue.WorkRequest;
@@ -27,43 +26,39 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     EcoSystem system;
     private UserAccount account;
+
     /**
      * Creates new form DoctorWorkAreaJPanel
      */
-    public CustomerAreaJPanel(JPanel userProcessContainer, UserAccount account,EcoSystem system) {
+    public CustomerAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
         initComponents();
-        
-        this.account=account;
+
+        this.account = account;
         this.userProcessContainer = userProcessContainer;
-        this.system=system;
-        valueLabel.setText("Welcome"+account.getName());
+        this.system = system;
+        valueLabel.setText("Welcome" + account.getName());
         populateTable();
         pastTblPopulate();
-        
-    }
-    
-    public void populateTable(){
-         DefaultTableModel model = (DefaultTableModel) restaurentTable.getModel();
-        
-        model.setRowCount(0);
-         
-       
-                Object[] row = new Object[3];
-                //System.out.println();
-                for(Restaurant restro:system.getRestaurantDirectory().getRestaurantList()){
-                     row[0] = restro;
-                     //System.out.println(restro.getAdminUName());
-                     row[1] = restro.getAddress();
-                     row[2] = restro.getNumber();
-                     model.addRow(row);
-                }
-            
-            
-        
-        
+
     }
 
-    
+    public void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) restaurentTable.getModel();
+
+        model.setRowCount(0);
+
+        Object[] row = new Object[3];
+        //System.out.println();
+        for (Restaurant restro : system.getRestaurantDirectory().getRestaurantList()) {
+            row[0] = restro;
+            //System.out.println(restro.getAdminUName());
+            row[1] = restro.getAddress();
+            row[2] = restro.getNumber();
+            model.addRow(row);
+        }
+
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -146,7 +141,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 40, 158, 26));
 
         valueLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        valueLabel1.setText("Available Restaurents");
+        valueLabel1.setText("Available Restaurant");
         add(valueLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 250, 26));
 
         valueLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
@@ -186,26 +181,24 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
 
     private void requestTestJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestTestJButtonActionPerformed
         int selectedRow = restaurentTable.getSelectedRow();
-        if(selectedRow<0){
-            JOptionPane.showMessageDialog(null,"Please select a row from the table to view details","Warning",JOptionPane.WARNING_MESSAGE);
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row from the table to view details", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else {
+            Restaurant restaurant = (Restaurant) restaurentTable.getValueAt(selectedRow, 0);
+
+            MenuPanel manageMenu = new MenuPanel(userProcessContainer, account, system, restaurant);
+            userProcessContainer.add("Manage Restaurents", manageMenu);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.next(userProcessContainer);
         }
-        else{
-           Restaurant restaurant = (Restaurant)restaurentTable.getValueAt(selectedRow, 0);
-            
-            
-              MenuPanel manageMenu=new MenuPanel(userProcessContainer,account,system,restaurant);
-             userProcessContainer.add("Manage Restaurents",manageMenu);
-            CardLayout layout=(CardLayout)userProcessContainer.getLayout();
-                layout.next(userProcessContainer);
-        }
-        
-        
+
+
     }//GEN-LAST:event_requestTestJButtonActionPerformed
 
     private void refreshTestJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshTestJButtonActionPerformed
 
         pastTblPopulate();
-        
+
     }//GEN-LAST:event_refreshTestJButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -223,28 +216,26 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
 
     private void pastTblPopulate() {
         DefaultTableModel model = (DefaultTableModel) pastTbl.getModel();
-        
+
         model.setRowCount(0);
-         
-       
-          for (Customer cust:system.getCustomerDirectory().getCustList()) {
-           
+
+        for (Customer cust : system.getCustomerDirectory().getCustList()) {
+
             if (cust.getUserName().equals(account.getUsername())) {
-               // System.out.println(restro.getOrderList());
-               for(Order menu:cust.getOrderList()){
-                Object[] row = new Object[4];
-                row[0] = menu;
-                row[1] = menu.getRestaurentName();
-               
-                row[2] = menu.getCost();
-                row[3] = menu.getStatus();
-                model.addRow(row);
-               }
-                
+                // System.out.println(restro.getOrderList());
+                for (Order menu : cust.getOrderList()) {
+                    Object[] row = new Object[4];
+                    row[0] = menu;
+                    row[1] = menu.getRestaurentName();
+
+                    row[2] = menu.getCost();
+                    row[3] = menu.getStatus();
+                    model.addRow(row);
+                }
+
             }
-            
+
         }
-        
-        
+
     }
 }

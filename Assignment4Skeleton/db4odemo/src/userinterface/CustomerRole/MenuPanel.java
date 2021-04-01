@@ -251,7 +251,7 @@ public class MenuPanel extends javax.swing.JPanel {
             return;
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, " Address is invalid");
+            JOptionPane.showMessageDialog(null, "Address is invalid");
 
             return;
         }
