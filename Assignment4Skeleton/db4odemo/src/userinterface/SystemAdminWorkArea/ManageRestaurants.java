@@ -177,20 +177,20 @@ public class ManageRestaurants extends javax.swing.JPanel {
               
         try {
              if(name==null || name.isEmpty()){
-                throw new NullPointerException(" Name field is Empty");
+                throw new NullPointerException("Select a row");
                 
                 
             }else if(name.length()<5 || Pattern.matches("^[A-Za-z]+$", name)==false){
-                throw new Exception("Please enter valid  Name");
+                throw new Exception("Name entered is less than 5 characters length, Please re-enter name");
                 
             }
         } catch(NullPointerException e){
-            JOptionPane.showMessageDialog(null, " Name is Empty");
+            JOptionPane.showMessageDialog(null, "Name not entered");
            
             return;
             
         }catch (Exception e){
-            JOptionPane.showMessageDialog(null, "  Name is invalid");
+            JOptionPane.showMessageDialog(null, "Name entered is less than 5 characters length, Please re-enter name");
        
             return;
         }
@@ -201,16 +201,16 @@ public class ManageRestaurants extends javax.swing.JPanel {
                 
                 
             }else if(uname.length()<5){
-                throw new Exception("Please enter valid User Name");
+                throw new Exception("User Name entered is less than 5 characters length, Please re-enter username");
                 
             }
         } catch(NullPointerException e){
-            JOptionPane.showMessageDialog(null, "User Name is Empty");
+            JOptionPane.showMessageDialog(null, "User Name not entered");
            
             return;
             
         }catch (Exception e){
-            JOptionPane.showMessageDialog(null, " User Name is invalid");
+            JOptionPane.showMessageDialog(null, "User Name entered is less than 5 characters length, Please re-enter username");
        
             return;
         }
@@ -218,9 +218,9 @@ public class ManageRestaurants extends javax.swing.JPanel {
          try {
              
             if(password==null || password.isEmpty()){
-                throw new NullPointerException("Pwd field is Empty");
+                throw new NullPointerException("Password field is empty");
             }else if(Pattern.matches("^(?=(.*[a-z]){1,})(?=(.*[\\d]){1,})(?=(.*[\\W]){1,})(?!.*\\s).{5,30}$", password)==false){
-                throw new Exception("Invalid Password");
+                throw new Exception("Invalid Password, Password must contain 5 characters and include 1 number and 1 special character");
             }
             
             
@@ -230,7 +230,7 @@ public class ManageRestaurants extends javax.swing.JPanel {
              
              return;
         }catch (Exception e) {
-             JOptionPane.showMessageDialog(null, "Password is of invalid pattern");
+             JOptionPane.showMessageDialog(null, "Invalid Password, Password must contain 5 characters and include 1 number and 1 special character");
              
              
              return;
@@ -238,7 +238,7 @@ public class ManageRestaurants extends javax.swing.JPanel {
          
          
         if (system.getUserAccountDirectory().checkIfUsernameIsUnique(uname)==false) {
-            JOptionPane.showMessageDialog(null,"  User Name already exists ");
+            JOptionPane.showMessageDialog(null,"Duplicate username found");
         }else{
             
         UserAccount ua1 =system.getUserAccountDirectory().createUserAccount(name,uname,password, null, new AdminRole());
@@ -271,7 +271,7 @@ public class ManageRestaurants extends javax.swing.JPanel {
 
         }
         else {
-            JOptionPane.showMessageDialog(null,"Please select a row");
+            JOptionPane.showMessageDialog(null,"Select a row");
         }
         submitJButton.setEnabled(false);
         deleteBtn.setEnabled(false);
@@ -284,7 +284,7 @@ public class ManageRestaurants extends javax.swing.JPanel {
         int selectedRow = networkJTable.getSelectedRow();
         if(selectedRow>=0){
             int selectionButton = JOptionPane.YES_NO_OPTION;
-            int selectionResult = JOptionPane.showConfirmDialog(null, "Are you sure to delete??","Warning",selectionButton);
+            int selectionResult = JOptionPane.showConfirmDialog(null, "Confirm deletion","Warning",selectionButton);
             if(selectionResult == JOptionPane.YES_OPTION){
                 String username= (String) networkJTable.getValueAt(selectedRow, 1);
                 String pwd= (String) networkJTable.getValueAt(selectedRow, 2);
@@ -296,7 +296,7 @@ public class ManageRestaurants extends javax.swing.JPanel {
                 populateNetworkTable();
             }
         }else{
-            JOptionPane.showMessageDialog(null, "Please select a Row!!");
+            JOptionPane.showMessageDialog(null, "Select a row");
         }
     }//GEN-LAST:event_deleteBtnActionPerformed
 
@@ -310,20 +310,20 @@ public class ManageRestaurants extends javax.swing.JPanel {
               
         try {
              if(name==null || name.isEmpty()){
-                throw new NullPointerException(" Name field is Empty");
+                throw new NullPointerException("Name not entered");
                 
                 
             }else if(name.length()<5 || Pattern.matches("^[A-Za-z]+$", name)==false){
-                throw new Exception("Please enter valid  Name");
+                throw new Exception("Name entered is less than 5 characters length, Please re-enter name");
                 
             }
         } catch(NullPointerException e){
-            JOptionPane.showMessageDialog(null, " Name is Empty");
+            JOptionPane.showMessageDialog(null, "Name field is empty");
            
             return;
             
         }catch (Exception e){
-            JOptionPane.showMessageDialog(null, "  Name is invalid");
+            JOptionPane.showMessageDialog(null, "Name entered is less than 5 characters length, Please re-enter name");
        
             return;
         }
@@ -334,16 +334,16 @@ public class ManageRestaurants extends javax.swing.JPanel {
                 
                 
             }else if(uname.length()<5){
-                throw new Exception("Please enter valid User Name");
+                throw new Exception("User Name entered is less than 5 characters length, Please re-enter username");
                 
             }
         } catch(NullPointerException e){
-            JOptionPane.showMessageDialog(null, "User Name is Empty");
+            JOptionPane.showMessageDialog(null, "User Name field is Empty");
            
             return;
             
         }catch (Exception e){
-            JOptionPane.showMessageDialog(null, " User Name is invalid");
+            JOptionPane.showMessageDialog(null, "User Name entered is less than 5 characters length, Please re-enter username");
        
             return;
         }
@@ -351,9 +351,9 @@ public class ManageRestaurants extends javax.swing.JPanel {
          try {
              
             if(password==null || password.isEmpty()){
-                throw new NullPointerException("Pwd field is Empty");
+                throw new NullPointerException("Password field is empty");
             }else if(Pattern.matches("^(?=(.*[a-z]){1,})(?=(.*[\\d]){1,})(?=(.*[\\W]){1,})(?!.*\\s).{5,30}$", password)==false){
-                throw new Exception("Invalid Password");
+                throw new Exception("Invalid Password, Password must contain 5 characters and include 1 number and 1 special character");
             }
             
             
@@ -363,7 +363,7 @@ public class ManageRestaurants extends javax.swing.JPanel {
              
              return;
         }catch (Exception e) {
-             JOptionPane.showMessageDialog(null, "Password is of invalid pattern");
+             JOptionPane.showMessageDialog(null, "Invalid Password, Password must contain 5 characters and include 1 number and 1 special character");
              
              
              return;
@@ -373,7 +373,7 @@ public class ManageRestaurants extends javax.swing.JPanel {
         
         
         if (system.getUserAccountDirectory().checkIfUsernameIsUnique(uname)==false) {
-            JOptionPane.showMessageDialog(null,"  User Name already exists ");
+            JOptionPane.showMessageDialog(null,"Duplicate username found");
         }else{
             
         system.getUserAccountDirectory().updateUserAccount(user,name,uname,password);

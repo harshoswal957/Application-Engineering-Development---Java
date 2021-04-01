@@ -250,26 +250,26 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
             return;
             
         }catch (Exception e){
-            JOptionPane.showMessageDialog(null, "  Name is invalid");
+            JOptionPane.showMessageDialog(null, "Name entered is less than 5 characters length, Please re-enter name");
        
             return;
         }
         
         try {
              if(uname==null || uname.isEmpty()){
-                throw new NullPointerException("User Name field is Empty");
+                throw new NullPointerException("User Name not entered");
                    
             }else if(uname.length()<5){
-                throw new Exception("Please enter valid User Name");
+                throw new Exception("User Name entered is less than 5 characters length, Please re-enter username");
                 
             }
         } catch(NullPointerException e){
-            JOptionPane.showMessageDialog(null, "User Name is Empty");
+            JOptionPane.showMessageDialog(null, "User Name field is Empty");
            
             return;
             
         }catch (Exception e){
-            JOptionPane.showMessageDialog(null, " User Name is invalid");
+            JOptionPane.showMessageDialog(null, "User Name entered is less than 5 characters length, Please re-enter username");
        
             return;
         }
@@ -277,9 +277,9 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
          try {
              
             if(password==null || password.isEmpty()){
-                throw new NullPointerException("Pwd field is Empty");
+                throw new NullPointerException("Password field is empty");
             }else if(Pattern.matches("^(?=(.*[a-z]){1,})(?=(.*[\\d]){1,})(?=(.*[\\W]){1,})(?!.*\\s).{5,30}$", password)==false){
-                throw new Exception("Invalid Password");
+                throw new Exception("Invalid Password, Password must contain 5 characters and include 1 number and 1 special character");
             }
             
             
@@ -289,7 +289,7 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
              
              return;
         }catch (Exception e) {
-             JOptionPane.showMessageDialog(null, "Password is of invalid pattern");
+             JOptionPane.showMessageDialog(null, "Invalid Password, Password must contain 5 characters and include 1 number and 1 special character");
              
              
              return;
@@ -298,7 +298,7 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
   
         
         if (system.getUserAccountDirectory().checkIfUsernameIsUnique(uname)==false) {
-            JOptionPane.showMessageDialog(null,"  User Name already exists ");
+            JOptionPane.showMessageDialog(null,"Duplicate username found");
         }else{
             
         system.getUserAccountDirectory().updateUserAccount(user,name,uname,password);
@@ -332,20 +332,20 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
         
         try {
              if(name==null || name.isEmpty()){
-                throw new NullPointerException(" Name field is Empty");
+                throw new NullPointerException("Name not entered");
                 
                 
             }else if(name.length()<5 || Pattern.matches("^[A-Za-z]+$", name)==false){
-                throw new Exception("Please enter valid  Name");
+                throw new Exception("Name entered is less than 5 characters length, Please re-enter name");
                 
             }
         } catch(NullPointerException e){
-            JOptionPane.showMessageDialog(null, " Name is Empty");
+            JOptionPane.showMessageDialog(null, "Name field is empty");
            
             return;
             
         }catch (Exception e){
-            JOptionPane.showMessageDialog(null, "  Name is invalid");
+            JOptionPane.showMessageDialog(null, "Name entered is less than 5 characters length, Please re-enter name");
        
             return;
         }
@@ -356,7 +356,7 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
                 
                 
             }else if(uname.length()<5){
-                throw new Exception("Please enter valid User Name");
+                throw new Exception("User Name entered is less than 5 characters length, Please re-enter username");
                 
             }
         } catch(NullPointerException e){
@@ -365,7 +365,7 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
             return;
             
         }catch (Exception e){
-            JOptionPane.showMessageDialog(null, " User Name is invalid");
+            JOptionPane.showMessageDialog(null, "User Name entered is less than 5 characters length, Please re-enter username");
        
             return;
         }
@@ -375,17 +375,17 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
             if(password==null || password.isEmpty()){
                 throw new NullPointerException("Pwd field is Empty");
             }else if(Pattern.matches("^(?=(.*[a-z]){1,})(?=(.*[\\d]){1,})(?=(.*[\\W]){1,})(?!.*\\s).{5,30}$", password)==false){
-                throw new Exception("Invalid Password");
+                throw new Exception("Invalid Password, Password must contain 5 characters and include 1 number and one special character");
             }
             
             
         }  catch(NullPointerException e){
-             JOptionPane.showMessageDialog(null, "Password is Empty");
+             JOptionPane.showMessageDialog(null, "Password field is Empty");
             
              
              return;
         }catch (Exception e) {
-             JOptionPane.showMessageDialog(null, "Password is of invalid pattern");
+             JOptionPane.showMessageDialog(null, "Invalid Password, Password must contain 5 characters and include 1 number and one special character");
              
              
              return;
@@ -395,7 +395,7 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
         
         
         if (system.getUserAccountDirectory().checkIfUsernameIsUnique(uname)==false) {
-            JOptionPane.showMessageDialog(null,"  User Name already exists ");
+            JOptionPane.showMessageDialog(null,"Duplicate username");
         }else{
             
         UserAccount ua1 =system.getUserAccountDirectory().createUserAccount(name,uname,password, null, new DeliverManRole());

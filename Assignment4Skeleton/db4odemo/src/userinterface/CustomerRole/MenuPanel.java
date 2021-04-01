@@ -27,52 +27,54 @@ import javax.swing.table.DefaultTableModel;
 public class MenuPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
-    int sum=0;
+    int sum = 0;
     private UserAccount userAccount;
     Restaurant restro;
     EcoSystem system;
-    ArrayList<Dishes> items=new ArrayList<Dishes>();
+    ArrayList<Dishes> items = new ArrayList<Dishes>();
+
     /**
      * Creates new form RequestLabTestJPanel
      */
-    public MenuPanel(JPanel userProcessContainer, UserAccount account,EcoSystem system,Restaurant restro) {
+    public MenuPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system, Restaurant restro) {
         initComponents();
-        
+
         this.userProcessContainer = userProcessContainer;
-        this.restro=restro;
-       this.system=system;
+        this.restro = restro;
+        this.system = system;
         this.userAccount = account;
         populateTable();
         valueLabel.setText(restro.getName());
-       
+
     }
-     public void populateTable(){
-            DefaultTableModel model = (DefaultTableModel) menuTable.getModel();
-        
-            model.setRowCount(0);
-                Object[] row = new Object[3];
-                for(Dishes dish:restro.getMenu()){
-                     row[0] = dish;
-                     row[1] = dish.getDescription();
-                     row[2] = dish.getPrice();
-                     model.addRow(row);
-                }  
+
+    public void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) menuTable.getModel();
+
+        model.setRowCount(0);
+        Object[] row = new Object[3];
+        for (Dishes dish : restro.getMenu()) {
+            row[0] = dish;
+            row[1] = dish.getDescription();
+            row[2] = dish.getPrice();
+            model.addRow(row);
+        }
     }
-     
-     public void populateCart(Dishes item){
+
+    public void populateCart(Dishes item) {
         DefaultTableModel model = (DefaultTableModel) cartTable.getModel();
         model.setRowCount(0);
-        
-         items.add(item);
-         Object[] row = new Object[3];
-                for(Dishes dish:items){
-                     row[0] = dish;
-                     row[1] = dish.getDescription();
-                     row[2] = dish.getPrice();
-                     sum=sum+Integer.parseInt(dish.getPrice());
-                     model.addRow(row);
-                }  
-     }
+
+        items.add(item);
+        Object[] row = new Object[3];
+        for (Dishes dish : items) {
+            row[0] = dish;
+            row[1] = dish.getDescription();
+            row[2] = dish.getPrice();
+            sum = sum + Integer.parseInt(dish.getPrice());
+            model.addRow(row);
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -205,107 +207,97 @@ public class MenuPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cardBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cardBtnActionPerformed
-        
-        
+
         int selectedRow = menuTable.getSelectedRow();
-        if(selectedRow<0){
-            JOptionPane.showMessageDialog(null,"Please select a row from the table to view details","Warning",JOptionPane.WARNING_MESSAGE);
-        }
-        else{
-            Dishes item=(Dishes)menuTable.getValueAt(selectedRow, 0);
-            
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row from the table to view details", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else {
+            Dishes item = (Dishes) menuTable.getValueAt(selectedRow, 0);
+
             populateCart(item);
-          
+
         }
-        
-        
-        
-       
-        
-        
+
+
     }//GEN-LAST:event_cardBtnActionPerformed
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
-        
+
         userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
         CustomerAreaJPanel dwjp = (CustomerAreaJPanel) component;
         dwjp.populateTable();
-        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
-        
+
     }//GEN-LAST:event_backJButtonActionPerformed
 
     private void orderBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderBtn1ActionPerformed
         // TODO add your handling code here:
-        String address=addressTxt.getText();
-        
+        String address = addressTxt.getText();
+
         try {
-             if(address==null || address.isEmpty()){
+            if (address == null || address.isEmpty()) {
                 throw new NullPointerException("Address field is Empty");
-                
-                
-            }else if(address.length()<5){
+
+            } else if (address.length() < 5) {
                 throw new Exception("Please enter valid address ");
-                
+
             }
-        } catch(NullPointerException e){
+        } catch (NullPointerException e) {
             JOptionPane.showMessageDialog(null, "Address is Empty");
-           
+
             return;
-            
-        }catch (Exception e){
+
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, " Address is invalid");
-       
+
             return;
         }
-        
-        
-        restro.addOrder(restro.getName(), userAccount.getUsername(), null, items, String.valueOf(sum) , address);
-        for(Customer cust:system.getCustomerDirectory().getCustList()){
-            if(userAccount.getUsername().equals(cust.getUserName())){
-                cust.addOrder(restro.getName(), userAccount.getUsername(), null, items, String.valueOf(sum) , address);
+
+        restro.addOrder(restro.getName(), userAccount.getUsername(), null, items, String.valueOf(sum), address);
+        for (Customer cust : system.getCustomerDirectory().getCustList()) {
+            if (userAccount.getUsername().equals(cust.getUserName())) {
+                cust.addOrder(restro.getName(), userAccount.getUsername(), null, items, String.valueOf(sum), address);
             }
         }
-        
-        
-        JOptionPane.showMessageDialog(null,"Your Order is placed","Thank You",JOptionPane.WARNING_MESSAGE);
-        sum=0;
+
+        JOptionPane.showMessageDialog(null, "Your Order is placed", "Thank You", JOptionPane.WARNING_MESSAGE);
+        sum = 0;
         userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
         CustomerAreaJPanel dwjp = (CustomerAreaJPanel) component;
         dwjp.populateTable();
-        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
-        
+
     }//GEN-LAST:event_orderBtn1ActionPerformed
 
     private void RemoveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveBtnActionPerformed
         // TODO add your handling code here:
-         int selectedRow = cartTable.getSelectedRow();
-        if(selectedRow<0){
-            JOptionPane.showMessageDialog(null,"Please select a row from the table to view details","Warning",JOptionPane.WARNING_MESSAGE);
-        }
-        else{
-            Dishes item=(Dishes)cartTable.getValueAt(selectedRow, 0);
-            
+        int selectedRow = cartTable.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row from the table to view details", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else {
+            Dishes item = (Dishes) cartTable.getValueAt(selectedRow, 0);
+
             items.remove(item);
-            sum=sum-Integer.parseInt(item.getPrice());
+            sum = sum - Integer.parseInt(item.getPrice());
             DefaultTableModel model = (DefaultTableModel) cartTable.getModel();
-        model.setRowCount(0);
+            model.setRowCount(0);
             Object[] row = new Object[3];
-                for(Dishes dish:items){
-                     row[0] = dish;
-                     row[1] = dish.getDescription();
-                     row[2] = dish.getPrice();
-                     
-                     model.addRow(row);
-                }  
-          
+            for (Dishes dish : items) {
+                row[0] = dish;
+                row[1] = dish.getDescription();
+                row[2] = dish.getPrice();
+
+                model.addRow(row);
+            }
+
         }
-        
+
     }//GEN-LAST:event_RemoveBtnActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
