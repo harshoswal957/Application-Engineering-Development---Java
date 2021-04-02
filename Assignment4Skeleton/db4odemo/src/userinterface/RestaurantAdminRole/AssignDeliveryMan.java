@@ -85,6 +85,7 @@ public class AssignDeliveryMan extends javax.swing.JPanel {
         BackBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         DeliveryManJTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -123,7 +124,7 @@ public class AssignDeliveryMan extends javax.swing.JPanel {
                 AssignOrderBtnActionPerformed(evt);
             }
         });
-        add(AssignOrderBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, -1, -1));
+        add(AssignOrderBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, -1, -1));
 
         BackBtn.setText("<< Back");
         BackBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -132,8 +133,6 @@ public class AssignDeliveryMan extends javax.swing.JPanel {
             }
         });
         add(BackBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
-
-        jLabel1.setText("jLabel1");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 

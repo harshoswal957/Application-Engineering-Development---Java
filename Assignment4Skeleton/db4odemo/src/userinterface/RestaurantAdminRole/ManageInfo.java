@@ -72,6 +72,7 @@ public class ManageInfo extends javax.swing.JPanel {
         SaveBtn = new javax.swing.JButton();
         UpdateBtn = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setText("Restaurant Name");
@@ -112,7 +113,7 @@ public class ManageInfo extends javax.swing.JPanel {
                 SaveBtnActionPerformed(evt);
             }
         });
-        add(SaveBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 360, -1, -1));
+        add(SaveBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, -1, -1));
 
         UpdateBtn.setText("Update");
         UpdateBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -120,7 +121,7 @@ public class ManageInfo extends javax.swing.JPanel {
                 UpdateBtnActionPerformed(evt);
             }
         });
-        add(UpdateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 360, -1, -1));
+        add(UpdateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 360, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void numTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numTxtActionPerformed

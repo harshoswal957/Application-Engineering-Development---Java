@@ -62,6 +62,7 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
         PasswordField = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         updateBtn.setText("Update");
@@ -120,7 +121,7 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
 
         jLabel5.setText("Username");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(118, 253, -1, 20));
-        add(nameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(207, 208, 144, -1));
+        add(nameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 144, -1));
 
         backJButton.setText("<< Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -128,7 +129,7 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
                 backJButtonActionPerformed(evt);
             }
         });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 501, -1, -1));
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, -1, -1));
 
         submitJButton.setText("Submit");
         submitJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -136,21 +137,21 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
                 submitJButtonActionPerformed(evt);
             }
         });
-        add(submitJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(621, 492, -1, -1));
+        add(submitJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, -1, -1));
 
         jLabel3.setText("Name");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(118, 213, -1, -1));
-        add(uNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(208, 249, 144, -1));
+        add(uNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, 144, -1));
 
         jLabel4.setText("Password");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 295, -1, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, -1, -1));
 
         PasswordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PasswordFieldActionPerformed(evt);
             }
         });
-        add(PasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(207, 292, 144, -1));
+        add(PasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 144, -1));
 
         jButton1.setText("Refresh");
         jButton1.addActionListener(new java.awt.event.ActionListener() {

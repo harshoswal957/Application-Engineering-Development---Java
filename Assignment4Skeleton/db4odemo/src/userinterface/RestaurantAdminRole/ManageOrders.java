@@ -77,6 +77,7 @@ public class ManageOrders extends javax.swing.JPanel {
         AssignBtn1 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         orderTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -107,7 +108,7 @@ public class ManageOrders extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(orderTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 580, 87));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 580, 87));
 
         backBtn.setText("<<<Back");
         backBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -123,7 +124,7 @@ public class ManageOrders extends javax.swing.JPanel {
                 viewOrderBtnActionPerformed(evt);
             }
         });
-        add(viewOrderBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 210, -1, -1));
+        add(viewOrderBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 260, -1, -1));
 
         AssignBtn1.setText("Assign to Delivery Man ");
         AssignBtn1.addActionListener(new java.awt.event.ActionListener() {
@@ -131,7 +132,7 @@ public class ManageOrders extends javax.swing.JPanel {
                 AssignBtn1ActionPerformed(evt);
             }
         });
-        add(AssignBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, -1, -1));
+        add(AssignBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, -1, -1));
 
         jButton1.setText("Refresh");
         jButton1.addActionListener(new java.awt.event.ActionListener() {

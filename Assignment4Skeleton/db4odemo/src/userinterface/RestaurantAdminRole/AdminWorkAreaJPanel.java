@@ -43,6 +43,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         enterpriseLabel = new javax.swing.JLabel();
         valueLabel = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -55,7 +56,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
                 userJButtonActionPerformed(evt);
             }
         });
-        add(userJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 180, -1));
+        add(userJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 160, -1));
 
         manageEmployeeJButton.setText("Manage menu");
         manageEmployeeJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -63,7 +64,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
                 manageEmployeeJButtonActionPerformed(evt);
             }
         });
-        add(manageEmployeeJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 150, -1));
+        add(manageEmployeeJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 160, -1));
 
         manageOrganizationJButton.setText("Manage Orders");
         manageOrganizationJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -71,7 +72,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
                 manageOrganizationJButtonActionPerformed(evt);
             }
         });
-        add(manageOrganizationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, -1, -1));
+        add(manageOrganizationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 160, -1));
 
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel.setText("Restaurant :");

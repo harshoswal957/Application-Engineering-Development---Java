@@ -83,6 +83,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         processJButton = new javax.swing.JButton();
         refreshJButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -121,7 +122,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
                 processJButtonActionPerformed(evt);
             }
         });
-        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 240, -1, -1));
+        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, -1, -1));
 
         refreshJButton.setText("Refresh");
         refreshJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -129,7 +130,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
                 refreshJButtonActionPerformed(evt);
             }
         });
-        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 170, -1, -1));
+        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void processJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processJButtonActionPerformed

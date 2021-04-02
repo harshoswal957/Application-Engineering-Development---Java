@@ -65,6 +65,7 @@ public class ManageRestaurants extends javax.swing.JPanel {
         ConfirmBtn = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         networkJTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -112,7 +113,7 @@ public class ManageRestaurants extends javax.swing.JPanel {
                 submitJButtonActionPerformed(evt);
             }
         });
-        add(submitJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(663, 519, -1, -1));
+        add(submitJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 370, -1, -1));
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 585, -1, -1));
@@ -122,7 +123,7 @@ public class ManageRestaurants extends javax.swing.JPanel {
         add(uNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 276, 144, -1));
 
         jLabel4.setText("Password");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(155, 322, -1, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, -1, -1));
 
         PasswordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
